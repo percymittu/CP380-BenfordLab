@@ -41,7 +41,38 @@ namespace BenfordLab
             //   - transform (select) the data so that you have a list of
             //     BenfordData objects
             //
-            var m = ??? ;
+            int c = 0;
+            foreach(var x in data)
+            {
+                c++;
+            }
+
+            int[] array = new int[c];
+            int k = 0;
+            foreach(var x in data)
+            {
+                array[k] = FirstDigit.getFirstDigit(x.Population);
+                k++;
+            }
+            List<BenfordData> Li = new List<BenfordData>();
+            for (int i = 1; i < 10; i++)
+            {
+                int p = 0;
+                for (int y = 0; y < array.length; y++)
+                {
+                    if (i == array[y])
+                    {
+                        p++;
+                    }
+                }
+
+                Li.Add(new BenfordData { Digit = i, Count = p });
+                Li.Concat(li);
+           
+
+            }
+        var m = Li;
+
 
             return m.ToArray();
         }
